@@ -50,5 +50,5 @@ while(True):
         pan_output=pan_pid.get_pid(pan_error,1)/2
         tilt_output=tilt_pid.get_pid(tilt_error,1)
         print("pan_output",pan_output)
-        pan_servo.angle(pan_servo.angle()+pan_output)
-        tilt_servo.angle(tilt_servo.angle()-tilt_output)
+#         pan_servo.angle(pan_servo.angle()+pan_output)
+#         tilt_servo.angle(tilt_servo.angle()-tilt_output)
