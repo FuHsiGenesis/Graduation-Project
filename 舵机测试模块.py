@@ -29,4 +29,4 @@ while True:
     #s1.angle(-50) # move to 45 degrees
     #s1.angle(-60, 1500) # move to -60 degrees in 1500ms
     s1.speed(50) # for continuous rotation servos
-    print(s1.angle())
+    #print(s1.angle())
