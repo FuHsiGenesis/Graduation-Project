@@ -15,8 +15,8 @@ pan_servo.angle(0)
 tilt_servo.angle(0)
 #pan_pid = PID(p=0.07, i=0, imax=90) #脱机运行或者禁用图像传输，使用这个PID
 #tilt_pid = PID(p=0.05, i=0, imax=90) #脱机运行或者禁用图像传输，使用这个PID
-pan_pid = PID(p=0.1, i=0.1, imax=90)#在线调试使用这个PID
-tilt_pid = PID(p=0.1, i=0.1, imax=90)#在线调试使用这个PID
+pan_pid = PID(p=0.09, i=0.1, imax=90)#在线调试使用这个PID
+tilt_pid = PID(p=0.09, i=0.1, imax=90)#在线调试使用这个PID
 
 
 # Reset sensor
@@ -67,16 +67,17 @@ while True:
         pan_output=pan_pid.get_pid(pan_error,1)
         tilt_output=tilt_pid.get_pid(tilt_error,1)
 
-        #print("pan_output",pan_output)
-        #print("tilt_output",tilt_output)
-        if abs(pan_servo.angle()-pan_output)>=0.1:
+
+       #设置死区范围：如果人脸在画面中间附近，可能会存在舵机来回小幅摆动的问题。 解决在目标值附近抖动的问题，
+       #可以这样解决：如果偏移量(offset)小于一定的数值舵机就不动。
+        if abs(pan_output)>1.1:
             pan_servo.angle(pan_servo.angle()-pan_output) #pan_servo.angle()：为上次输出的角度
-        print(pan_servo.angle()+pan_output)
-        if abs(tilt_servo.angle()+tilt_output)>=0.1:
+        if abs(tilt_output)>1.1:
             tilt_servo.angle(tilt_servo.angle()+tilt_output)
-        #print('all_output',tilt_servo.angle()+tilt_output)
-
-
+        #if abs(int(pan_servo.angle(pan_servo.angle()-pan_output)-(pan_servo.angle()-pan_output)))<=1:
+           #pan_servo.angle(pan_servo.angle()-pan_output) #pan_servo.angle()：为上次输出的角度
+        #if abs(int(tilt_servo.angle(tilt_servo.angle()+tilt_output)-(tilt_servo.angle()+tilt_output)))<=1:
+           #tilt_servo.angle(tilt_servo.angle()+tilt_output)
 
 
 
