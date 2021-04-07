@@ -1,4 +1,4 @@
-# Face recognition with LBP descriptors.
+**# ********************Face recognition with LBP descriptors.
 # See Timo Ahonen's "Face Recognition with Local Binary Patterns".
 #
 # Before running the example:

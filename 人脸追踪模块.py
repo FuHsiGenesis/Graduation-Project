@@ -1,5 +1,5 @@
 
-import sensor, time, image, pyb
+import sensor, time, image, pyb,math
 
 from pyb import Servo
 from pid import PID
@@ -15,8 +15,8 @@ pan_servo.angle(0)
 tilt_servo.angle(0)
 #pan_pid = PID(p=0.07, i=0, imax=90) #脱机运行或者禁用图像传输，使用这个PID
 #tilt_pid = PID(p=0.05, i=0, imax=90) #脱机运行或者禁用图像传输，使用这个PID
-pan_pid = PID(p=0.1, i=0.1, imax=90)#在线调试使用这个PID
-tilt_pid = PID(p=0.1, i=0.1, imax=90)#在线调试使用这个PID
+pan_pid = PID(p=0.1, i=0, imax=90)#在线调试使用这个PID
+tilt_pid = PID(p=0.1, i=0, imax=90)#在线调试使用这个PID
 
 
 # Reset sensor
@@ -70,10 +70,11 @@ while True:
 
         #print("pan_output",pan_output)
         #print("tilt_output",tilt_output)
-
-        pan_servo.angle(pan_servo.angle()-pan_output) #pan_servo.angle()：为上次输出的角度
-        #print('all_output',pan_servo.angle()+pan_output)
-        tilt_servo.angle(tilt_servo.angle()+tilt_output)
+        if abs(pan_servo.angle()-pan_output)>=6:
+            pan_servo.angle(pan_servo.angle()-pan_output) #pan_servo.angle()：为上次输出的角度
+        print(pan_servo.angle()+pan_output)
+        if abs(tilt_servo.angle()+tilt_output)>=6:
+            tilt_servo.angle(tilt_servo.angle()+tilt_output)
         #print('all_output',tilt_servo.angle()+tilt_output)
 
 
