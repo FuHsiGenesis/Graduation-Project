@@ -1,0 +1,5 @@
+
+
+void display(int Data);
+
+

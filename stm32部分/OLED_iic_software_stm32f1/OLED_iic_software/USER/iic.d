@@ -1,0 +1,15 @@
+.\iic.o: ..\HARDWARELIB\IIC\iic.c
+.\iic.o: ..\HARDWARELIB\IIC\iic.h
+.\iic.o: ..\SYSTEM\sys\sys.h
+.\iic.o: ..\USER\stm32f10x.h
+.\iic.o: ..\CORE\core_cm3.h
+.\iic.o: F:\STM32\software\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\iic.o: ..\USER\system_stm32f10x.h
+.\iic.o: ..\USER\stm32f10x_conf.h
+.\iic.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+.\iic.o: ..\USER\stm32f10x.h
+.\iic.o: ..\STM32F10x_FWLib\inc\stm32f10x_i2c.h
+.\iic.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+.\iic.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+.\iic.o: ..\STM32F10x_FWLib\inc\misc.h
+.\iic.o: ..\SYSTEM\delay\delay.h
